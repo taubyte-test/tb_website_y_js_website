@@ -161,8 +161,7 @@ export default {
     };
   },
   async beforeMount() {
-    let host = "http://hal.computers.com:9090/"
-    let response = await axios.get(host + "ws/url")
+    let response = await axios.get(window.location.origin + "/ws/url")
     const ydoc = new Y.Doc()
     wsData.provider = new WebsocketProvider(host.replace("http", "ws") + response.data, ydoc)
     wsData.type = ydoc.getXmlFragment('prosemirror')
