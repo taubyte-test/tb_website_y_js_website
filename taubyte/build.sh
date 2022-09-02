@@ -1,5 +1,5 @@
 #!/bin/bash
 
-yarn install
-yarn audit fix
-yarn build && mv dist out
+npm install
+npm audit fix --force
+npm run build && mv dist out
