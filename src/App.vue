@@ -161,7 +161,8 @@ export default {
     };
   },
   async beforeMount() {
-    let response = await axios.get(window.location.origin + "/ws/url")
+    let host = window.location.origin
+    let response = await axios.get(host + "/ws/url")
     const ydoc = new Y.Doc()
     wsData.provider = new WebsocketProvider(host.replace("http", "ws") + response.data, ydoc)
     wsData.type = ydoc.getXmlFragment('prosemirror')
