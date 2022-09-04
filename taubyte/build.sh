@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export NODE_OPTIONS=--openssl-legacy-provider
+
 cd monaco
 npm install
 npm run dist
