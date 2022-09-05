@@ -8,7 +8,6 @@ cd monaco
 npm install
 npm run dist
 mkdir ../out
-cp -r dist/* ../out
 cp index.html ../out
 
 cd ..
