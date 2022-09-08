@@ -28,7 +28,7 @@ window.MonacoEnvironment = {
 window.addEventListener('load', async () => {
   const ydoc = new Y.Doc()
 
-  let host = window.location.origin
+  let host = "http://hal.computers.com:11315"  //window.location.origin
   let response = await axios.get(host + "/ws/url")
   let wsURL = host.replace("http", "ws") + "/" + response.data
   const provider = new WebsocketProvider(wsURL, ydoc)

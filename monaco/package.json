@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dist": "webpack --mode=production",
-    "start": "webpack-dev-server --open-page monaco/monaco.html"
+    "start": "webpack-dev-server --open-page monaco/index.html"
   },
   "author": "Kevin Jahns <kevin.jahns@pm.me>",
   "license": "UNLICENSE",
