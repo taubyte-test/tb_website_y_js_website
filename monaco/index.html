@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <title>Yjs Monaco Example</title>
     <style>
         #monaco-editor {
-            width:100%;
-            height:600px;
-            border:1px solid #ccc;
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ccc;
         }
+
         .yRemoteSelection {
             background-color: rgb(250, 129, 0, .5)
         }
+
         .yRemoteSelectionHead {
             position: absolute;
             border-left: orange solid 2px;
@@ -20,6 +23,7 @@
             height: 100%;
             box-sizing: border-box;
         }
+
         .yRemoteSelectionHead::after {
             position: absolute;
             content: ' ';
@@ -28,11 +32,25 @@
             left: -4px;
             top: -5px;
         }
+        .welcome-header {
+            color:blanchedalmond;
+            text-align: center;
+        }
+        .error-header {
+            background-color: rgb(97, 37, 37);
+            text-align: center;
+            display: none;
+        }
     </style>
 </head>
+<h1 class="welcome-header">Taubyte's y-websocket monaco example</h1>
+<h2 class="error-header"></h2>
 <body style="background-color: rgb(32, 32, 32)">
-  <button type="button" id="y-connect-btn">Disconnect</button>
-  <div id="monaco-editor" />
-  <script type="text/javascript" src="/monaco/dist/monaco.bundle.js"></script>
+    <button type="button" id="y-connect-btn">Disconnect</button>
+    <button type="button" id="y-room-btn">Join Room</button>
+    <input id="socket-room" placeholder="Room">Room</input>
+    <div id="monaco-editor"></div>
+    <script type="text/javascript" src="/monaco/dist/monaco.bundle.js"></script>
 </body>
+
 </html>

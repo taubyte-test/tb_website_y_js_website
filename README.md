@@ -4,7 +4,9 @@
 
 ## Testing
 
+cd monaco
 npm install webpack-dev-server -g
+npm i
 npm run start
 
 open http://localhost:8080/monaco/index.html

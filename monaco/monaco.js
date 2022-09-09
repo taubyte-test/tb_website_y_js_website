@@ -28,10 +28,17 @@ window.MonacoEnvironment = {
 window.addEventListener('load', async () => {
   const ydoc = new Y.Doc()
 
-  let host = "http://hal.computers.com:11315"  //window.location.origin
-  let response = await axios.get(host + "/ws/url")
+  const roomInput = /** @type {HTMLElement} */document.getElementById("socket-room")
+  roomInput.value = window.localStorage.getItem("socket-room")
+
+  let host = window.location.origin
+  let response = await axios.get(host + "/ws/url").catch((e) => {
+    let errorHeader = /** @type {HTMLElement} */document.getElementsByClassName('error-header')[0]
+    errorHeader.style.setProperty("display", "block")
+    errorHeader.innerHTML = `Getting websocket url failed with:${e}`
+  })
   let wsURL = host.replace("http", "ws") + "/" + response.data
-  const provider = new WebsocketProvider(wsURL, ydoc)
+  const provider = new WebsocketProvider(wsURL, ydoc, { room: roomInput.value })
   const ytext = ydoc.getText('monaco')
 
   const editor = monaco.editor.create(/** @type {HTMLElement} */(document.getElementById('monaco-editor')), {
@@ -50,6 +57,15 @@ window.addEventListener('load', async () => {
       provider.connect()
       connectBtn.textContent = 'Disconnect'
     }
+  })
+
+  const joinRoomBtn = /** @type {HTMLElement} */ (document.getElementById('y-room-btn'))
+  joinRoomBtn.addEventListener('click', () => {
+    window.localStorage.setItem("socket-room", roomInput.value)
+    provider.disconnect()
+    provider.setRoom(roomInput.value)
+    provider.connect()
+    roomInput.value = ""
   })
 
   // @ts-ignore
