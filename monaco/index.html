@@ -32,10 +32,12 @@
             left: -4px;
             top: -5px;
         }
+
         .welcome-header {
-            color:blanchedalmond;
+            color: blanchedalmond;
             text-align: center;
         }
+
         .error-header {
             background-color: rgb(97, 37, 37);
             text-align: center;
@@ -45,10 +47,12 @@
 </head>
 <h1 class="welcome-header">Taubyte's y-websocket monaco example</h1>
 <h2 class="error-header"></h2>
+
 <body style="background-color: rgb(32, 32, 32)">
     <button type="button" id="y-connect-btn">Disconnect</button>
     <button type="button" id="y-room-btn">Join Room</button>
     <input id="socket-room" placeholder="Room"></input>
+    <input placeholder="language" id="language-select-btn"></input>
     <div id="monaco-editor"></div>
     <script type="text/javascript" src="/monaco/dist/monaco.bundle.js"></script>
 </body>

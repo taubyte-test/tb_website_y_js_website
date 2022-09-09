@@ -4,7 +4,6 @@ import * as Y from 'yjs'
 import { WebsocketProvider } from 'y-taubyte'
 import { MonacoBinding } from 'y-monaco'
 import * as monaco from 'monaco-editor'
-import axios from "axios";
 
 // @ts-ignore
 window.MonacoEnvironment = {
@@ -67,6 +66,19 @@ window.addEventListener('load', async () => {
   joinRoomBtn.addEventListener('click', () => {
     window.localStorage.setItem("socket-room", roomInput.value)
     window.location.reload(true)
+  })
+
+  const languageSelect = /** @type {HTMLElement} */ (document.getElementById('language-select-btn'))
+  languageSelect.addEventListener('keydown', (event) => {
+    if (event.key == "Enter") {
+      monaco.editor.setModelLanguage(monaco.editor.getModels()[0], languageSelect.value)
+    }
+  })
+
+  console.log("editor", monaco.editor)
+
+  monaco.editor.onDidChangeModelLanguage(() => {
+    languageSelect.value = monaco.editor.getModels()[0]._languageIdentifier.language
   })
 
   // @ts-ignore
