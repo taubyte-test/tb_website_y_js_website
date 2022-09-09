@@ -34,12 +34,12 @@ window.addEventListener('load', async () => {
   // Taubyte websocket usage
   const provider = new WebsocketProvider("/ws/url", ydoc, {
     room: roomInput.value,
-    socketUrl: "http://hal.computers.com:10911"
+    // socketUrl: "http://hal.computers.com:10911"  // Uncomment and change port to test with local dreamland
   })
   await provider.start().catch((e) => {
     let errorHeader = /** @type {HTMLElement} */document.getElementsByClassName('error-header')[0]
     errorHeader.style.setProperty("display", "block")
-    errorHeader.innerHTML = `Getting websocket url failed with:${e}`
+    errorHeader.innerHTML = `Connecting to websocket failed with: ${e}`
   })
   // end
 
