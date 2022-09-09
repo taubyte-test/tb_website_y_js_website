@@ -31,14 +31,18 @@ window.addEventListener('load', async () => {
   const roomInput = /** @type {HTMLElement} */document.getElementById("socket-room")
   roomInput.value = window.localStorage.getItem("socket-room")
 
-  let host = window.location.origin
-  let response = await axios.get(host + "/ws/url").catch((e) => {
+  // Taubyte websocket usage
+  const provider = new WebsocketProvider("/ws/url", ydoc, {
+    room: roomInput.value,
+    socketUrl: "http://hal.computers.com:10911"
+  })
+  await provider.start().catch((e) => {
     let errorHeader = /** @type {HTMLElement} */document.getElementsByClassName('error-header')[0]
     errorHeader.style.setProperty("display", "block")
     errorHeader.innerHTML = `Getting websocket url failed with:${e}`
   })
-  let wsURL = host.replace("http", "ws") + "/" + response.data
-  const provider = new WebsocketProvider(wsURL, ydoc, { room: roomInput.value })
+  // end
+
   const ytext = ydoc.getText('monaco')
 
   const editor = monaco.editor.create(/** @type {HTMLElement} */(document.getElementById('monaco-editor')), {
@@ -62,10 +66,7 @@ window.addEventListener('load', async () => {
   const joinRoomBtn = /** @type {HTMLElement} */ (document.getElementById('y-room-btn'))
   joinRoomBtn.addEventListener('click', () => {
     window.localStorage.setItem("socket-room", roomInput.value)
-    provider.disconnect()
-    provider.setRoom(roomInput.value)
-    provider.connect()
-    roomInput.value = ""
+    window.location.reload(true)
   })
 
   // @ts-ignore
