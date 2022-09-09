@@ -69,16 +69,10 @@ window.addEventListener('load', async () => {
   })
 
   const languageSelect = /** @type {HTMLElement} */ (document.getElementById('language-select-btn'))
-  languageSelect.addEventListener('keydown', (event) => {
-    if (event.key == "Enter") {
-      monaco.editor.setModelLanguage(monaco.editor.getModels()[0], languageSelect.value)
-    }
-  })
+  languageSelect.addEventListener('click', () => {
 
-  console.log("editor", monaco.editor)
-
-  monaco.editor.onDidChangeModelLanguage(() => {
-    languageSelect.value = monaco.editor.getModels()[0]._languageIdentifier.language
+    // TODO:  does not change for everyone
+    monaco.editor.setModelLanguage(monaco.editor.getModels()[0], languageSelect.value)
   })
 
   // @ts-ignore

@@ -45,14 +45,65 @@
         }
     </style>
 </head>
-<h1 class="welcome-header">Taubyte's y-websocket monaco example</h1>
+<h1 class="welcome-header">y-taubyte example with monaco</h1>
 <h2 class="error-header"></h2>
 
 <body style="background-color: rgb(32, 32, 32)">
     <button type="button" id="y-connect-btn">Disconnect</button>
     <button type="button" id="y-room-btn">Join Room</button>
     <input id="socket-room" placeholder="Room"></input>
-    <input placeholder="language" id="language-select-btn"></input>
+    <select id="language-select-btn">
+        <option value="javascript">javascript</option>
+        <option value="go">go</option>
+        <option value="sql">sql</option>
+        <option value="shell">shell</option>
+        <option value="pug">pug</option>
+        <option value="pascaligo">pascaligo</option>
+        <option value="csp">csp</option>
+        <option value="xml">xml</option>
+        <option value="yaml">yaml</option>
+        <option value="ruby">ruby</option>
+        <option value="css">css</option>
+        <option value="redis">redis</option>
+        <option value="clojure">clojure</option>
+        <option value="fillers">fillers</option>
+        <option value="twig">twig</option>
+        <option value="st">st</option>
+        <option value="mips">mips</option>
+        <option value="javascript">javascript</option>
+        <option value="mysql">mysql</option>
+        <option value="sb">sb</option>
+        <option value="perl">perl</option>
+        <option value="powershell">powershell</option>
+        <option value="less">less</option>
+        <option value="abap">abap</option>
+        <option value="sophia">sophia</option>
+        <option value="coffee">coffee</option>
+        <option value="azcli">azcli</option>
+        <option value="julia">julia</option>
+        <option value="objective-c">objective-c</option>
+        <option value="restructuredtext">restructuredtext</option>
+        <option value="msdax">msdax</option>
+        <option value="lua">lua</option>
+        <option value="cpp">cpp</option>
+        <option value="postiats">postiats</option>
+        <option value="handlebars">handlebars</option>
+        <option value="vb">vb</option>
+        <option value="markdown">markdown</option>
+        <option value="csharp">csharp</option>
+        <option value="python">python</option>
+        <option value="solidity">solidity</option>
+        <option value="pascal">pascal</option>
+        <option value="redshift">redshift</option>
+        <option value="php">php</option>
+        <option value="java">java</option>
+        <option value="kotlin">kotlin</option>
+        <option value="r">r</option>
+        <option value="pgsql">pgsql</option>
+        <option value="cameligo">cameligo</option>
+        <option value="powerquery">powerquery</option>
+        <option value="fs">fs</option>
+    </select>
     <div id="monaco-editor"></div>
     <script type="text/javascript" src="/monaco/dist/monaco.bundle.js"></script>
 </body>
