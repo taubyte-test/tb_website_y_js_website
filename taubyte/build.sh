@@ -10,4 +10,4 @@ npm run dist
 mv index.html ${OUT}/index.html
 
 cd ..
-cp -r monaco/* ${OUT}
+mv -r monaco/* ${OUT}
