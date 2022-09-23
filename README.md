@@ -11,7 +11,7 @@ npm run start
 
 open http://localhost:8080/monaco/index.html
 
-### Taubyte Testing
+### Taubyte Tessting
 
 dream inject importProdProject -b master -t ${taubyte_token} --pid QmdG7qa9eMhub27t52DyEtQcfN7aTaKA2HoiBK4q975274
 dream status node
