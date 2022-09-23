@@ -7,7 +7,7 @@ export NODE_OPTIONS=--openssl-legacy-provider
 cd monaco
 npm install
 npm run dist
-cp index.html ${OUT}
+mv index.html ${OUT}/index.html
 
 cd ..
-cp -r monaco/* ${out}
+cp -r monaco/* ${OUT}
