@@ -19,7 +19,7 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.2",
     "y-monaco": "0.1.2",
-    "y-taubyte": "^0.1.4",
+    "y-taubyte": "2.0.0",
     "yjs": "^13.5.8"
   },
   "devDependencies": {
